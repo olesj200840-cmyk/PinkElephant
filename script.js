@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
             id: 1,
             name: "Комплект нижнего белья",
             description: "Красивый и современный комплект из хлопка.",
-            imageURL: "./image/комплект_нижнего_белья.jpg"
+            imageURL: "./image/комплект_нижнего_белья_1.jpg"
         },
         {
             id: 2,
