@@ -8,17 +8,29 @@
     <link rel="manifest" href="manifest.json">
 </head>
 <body>
+    <!-- Приветственное модальное окно -->
+    <div id="welcome-modal" class="modal-welcome">
+        <div class="modal-welcome-content">
+            <img src="./image/logo.png" alt="Логотип Pink Elephant" class="logo">
+            <h1>Pink Elephant</h1>
+            <button id="start-button">Продолжить</button>
+        </div>
+    </div>
+
+    <!-- Основной заголовок сайта -->
     <header>
         <h1>Магазин Pink Elephant</h1>
     </header>
+
     <main>
         <ul id="product-list">
             <!-- Товары будут появляться здесь автоматически -->
         </ul>
     </main>
+
     <footer>&copy; Pink Elephant, 2025</footer>
 
-    <!-- Модальное окно -->
+    <!-- Модальное окно для товара -->
     <div id="modal" class="hidden">
         <div class="modal-content">
             <span class="close-button">×</span>
@@ -27,45 +39,8 @@
         </div>
     </div>
 
-        <script>
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('./sw.js')
-                .then(function() { console.log('Service Worker Registered'); })
-                .catch(function(error) { console.log('Error registering Service Worker:', error); });
-        }
-    </script>
-    <script src="script.js"></script>
-</body>
-</html><!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Магазин Pink Elephant</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="manifest" href="manifest.json">
-</head>
-<body>
-    <header>
-        <h1>Магазин Pink Elephant</h1>
-    </header>
-    <main>
-        <ul id="product-list">
-            <!-- Товары будут появляться здесь автоматически -->
-        </ul>
-    </main>
-    <footer>&copy; Pink Elephant, 2025</footer>
-
-    <!-- Модальное окно -->
-    <div id="modal" class="hidden">
-        <div class="modal-content">
-            <span class="close-button">×</span>
-            <h2></h2>
-            <p></p>
-        </div>
-    </div>
-
-        <script>
+    <!-- Регистрация Service Worker -->
+    <script>
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('./sw.js')
                 .then(function() { console.log('Service Worker Registered'); })
@@ -75,4 +50,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-<link rel="manifest" href="manifest.json">
