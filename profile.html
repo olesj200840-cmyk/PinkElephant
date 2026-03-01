@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Профиль — Pink Elephant</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <!-- Подключаем шрифт -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <style>
@@ -95,12 +95,42 @@
 
         <!-- Кнопки -->
         <div class="profile-buttons">
-            <button class="profile-btn edit-btn">Редактировать профиль</button>
-            <button class="profile-btn logout-btn">Выйти</button>
+            <button class="profile-btn edit-btn" id="edit-name">Редактировать профиль</button>
+            <button class="profile-btn logout-btn" id="logout-btn">Выйти</button>
         </div>
     </div>
 
     <!-- Ссылка "Назад" -->
     <a href="index.html" class="back-link">← Вернуться в магазин</a>
 </body>
+<script>
+    // Убираем active со всех, добавляем текущей
+    document.querySelectorAll('.nav-link').forEach(link => {
+        if (link.getAttribute('href') === window.location.pathname) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
+</script>
+<script>
+    const usernameEl = document.querySelector('.username');
+    const editBtn = document.getElementById('edit-name');
+
+    editBtn.addEventListener('click', () => {
+        const newName = prompt('Введите новое имя:', usernameEl.innerText);
+        if (newName && newName.trim() !== '') {
+            usernameEl.innerText = newName.trim();
+            alert('Имя успешно изменено!');
+        }
+    });
+</script>
 </html>
+<script>
+    document.getElementById('logout-btn').addEventListener('click', () => {
+        if (confirm('Вы уверены, что хотите выйти?')) {
+            alert('Вы вышли из аккаунта');
+            // Можно перенаправить: window.location.href = 'index.html';
+        }
+    });
+</script>

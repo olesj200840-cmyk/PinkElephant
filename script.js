@@ -27,11 +27,35 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         {
             id: 2,
-            name: "Сумка",
-            description: "Прочная сумка из натуральной кожи.",
-            imageURL: "https://via.placeholder.com/150"
-        }
-    ];
+            name: "Футболка оверсайз с сакурой",
+            description: "Футболка оверсайз из хлопка, светящийся принт сакура.",
+            imageURL: "./image/футболка_1.jpg"
+        },
+        {
+            id: 3,
+            name: "Браслет с ракушкой и звездами y2k безмоаморный",
+            description: "Украшение, содердащее эластичную резинку, которая позволит украшению подходить на размер руки от 16 до 21 см.",
+            imageURL: "./image/браслет.jpg"
+        },
+        {
+            id: 4,
+            name:"Кольцо аниме манга Евангелион",
+            description: "Кольцо Копьё Лонгина Евангелион, аниме манга, серебристый цвет, бижутерный сплав.",
+            imageURL: "./image/кольцо.jpg"
+        },
+        {
+            id: 5,
+            name:"Ночник Геймпад (джостик)",
+            description: "Украшение, содердащее эластичную резинку, которая позволит украшению подходить на размер руки от 16 до 21 см.",
+            imageURL: "./image/ночник.jpg"
+        },
+         {
+            id: 6,
+            name:"Спортивные штаны женские",
+            description: "Спортивные широкие штаны бежевого цвета с карманами. Идеально подходят для прогулки летом.",
+            imageURL: "./image/штаны_жен.jpg"
+        },
+    ]; 
 
     // Генерация карточек товаров
     products.forEach(product => {
@@ -110,4 +134,21 @@ document.addEventListener("DOMContentLoaded", () => {
             // В будущем: показывать нужную секцию
         });
     });
+    products.forEach((product, index) => {
+        const li = document.createElement("li");
+        li.className = "product-item";
+        li.innerHTML = `
+        <img class="product-img" src="${product.imageURL}" alt="${product.name}">
+        <h3>${product.name}</h3>
+    `;
+    productList.appendChild(li);
+
+    li.style.animationDelay = `${index * 0.1}s`;
+
+    li.addEventListener("click", () => {
+        modal.style.display = "flex";
+        modal.querySelector("h2").innerText = product.name;
+        modal.querySelector("p").innerText = product.description;
+    });
+});
 });
