@@ -7,9 +7,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const products = [
         {
             id: 1,
-            name: "Футболка",
-            description: "Красивая и удобная футболка из хлопка.",
-            imageURL: "https://via.placeholder.com/150"
+            name: "Комплект нижнего белья",
+            description: "Красивый и современый комплект из хлопка.",
+            imageURL: "./image/комплект_нижнего_белья.jpg"
         },
         {
             id: 2,
