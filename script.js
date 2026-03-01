@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
             id: 2,
             name: "Футболка оверсайз с сакурой",
             description: "Футболка оверсайз из хлопка, светящийся принт сакура.",
-            imageURL: "./image/футболка_1.jpg"
+            imageURL: "./image/Футболка_1.jpg"
         },
         {
             id: 3,
@@ -56,17 +56,18 @@ document.addEventListener("DOMContentLoaded", () => {
             imageURL: "./image/штаны_жен.jpg"
         },
     ]; 
-
-    // Генерация карточек товаров
-    products.forEach(product => {
+    products.forEach((product, index) => {
         const li = document.createElement("li");
         li.className = "product-item";
         li.innerHTML = `
-            <img class="product-img" src="${product.imageURL}" alt="${product.name}">
-            <h3>${product.name}</h3>
+        <img class="product-img" src="${product.imageURL}" alt="${product.name}">
+                <h3>${product.name}</h3>
         `;
         productList.appendChild(li);
-
+        // Добавляем задержку для анимации появления
+        li.style.animationDelay = `${index * 0.1}s`;
+        
+        // Обработчик клика
         li.addEventListener("click", () => {
             modal.style.display = "flex";
             modal.querySelector("h2").innerText = product.name;
