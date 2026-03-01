@@ -6,34 +6,56 @@
     <title>Магазин Pink Elephant</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="manifest" href="manifest.json">
+    <!-- Подключаем шрифт Playfair Display -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Приветственное модальное окно -->
-    <div id="welcome-modal" class="modal-welcome">
+    <div id="welcome-modal">
         <div class="modal-welcome-content">
-            <img src="./image/logo_1.jpg" alt="Pink Elephant" class="logo">
+            <img src="./image/logo_1.jpg" alt="Логотип Pink Elephant" class="logo">
             <h1>Pink Elephant</h1>
             <button id="start-button">Продолжить</button>
         </div>
     </div>
 
-    <!-- Основной заголовок сайта -->
     <header>
-        <h1>Магазин Pink Elephant</h1>
+        <div class="logo-container">
+            <img src="./image/logo_1.jpg" alt="Pink Elephant" class="site-logo">
+        </div>
+
+        <nav class="sidebar">
+            <a href="#home" class="nav-link active">
+                <span class="icon">🏠</span>
+                <span class="label">Главная</span>
+            </a>
+            <a href="#profile" class="nav-link">
+                <span class="icon">👤</span>
+                <span class="label">Профиль</span>
+            </a>
+            <a href="#cart" class="nav-link">
+                <span class="icon">🛒</span>
+                <span class="label">Корзина</span>
+            </a>
+            <a href="#settings" class="nav-link">
+                <span class="icon">⚙️</span>
+                <span class="label">Настройки</span>
+            </a>
+        </nav>
     </header>
 
-    <main>
+    <main role="main">
         <ul id="product-list">
             <!-- Товары будут появляться здесь автоматически -->
         </ul>
     </main>
 
-    <footer>&copy; Pink Elephant, 2025</footer>
+    <footer role="contentinfo">&copy; Pink Elephant, 2025</footer>
 
     <!-- Модальное окно для товара -->
-    <div id="modal" class="hidden">
+    <div id="modal" class="hidden" role="dialog" aria-hidden="true">
         <div class="modal-content">
-            <span class="close-button">×</span>
+            <span class="close-button" aria-label="Закрыть">×</span>
             <h2></h2>
             <p></p>
         </div>

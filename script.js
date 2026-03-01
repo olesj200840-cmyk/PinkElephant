@@ -88,4 +88,26 @@ document.addEventListener("DOMContentLoaded", () => {
         });
         document.body.appendChild(installButton);
     });
+
+    // === Навигация по кликам ===
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            // Убираем активный класс со всех
+            document.querySelectorAll('.nav-link').forEach(el => {
+                el.classList.remove('active');
+            });
+
+            // Добавляем текущему
+            this.classList.add('active');
+
+            const page = this.getAttribute('href').slice(1); // home, profile...
+
+            // Здесь можно добавить логику переключения страниц
+            alert(`Переход на: ${page}`);
+            
+            // В будущем: показывать нужную секцию
+        });
+    });
 });
