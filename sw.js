@@ -5,8 +5,8 @@ const urlsToCache = [
   './styles.css',
   './script.js',
   './manifest.json',
-  './КАртинки/icon-192.png',
-  './КАртинки/icon-512.png'
+  './image/icon-192.png',
+  './image/icon-512.png'
 ];
 
 // Установка Service Worker и кэширование ресурсов

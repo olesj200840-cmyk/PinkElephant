@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
         deferredPrompt = e;
 
         const installButton = document.createElement('button');
-        installButton.textContent = 'Установить приложение';
+        installButton.textContent = 'Установить как приложение';
         installButton.style.cssText = `
             position: fixed;
             bottom: 20px;
@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
             deferredPrompt.prompt();
             deferredPrompt.userChoice.then((choiceResult) => {
                 if (choiceResult.outcome === 'accepted') {
-                    console.log('Пользователь установил приложение');
+                    console.log('Пользователь установил приложение Pink Elephant');
                 }
                 deferredPrompt = null;
             });
