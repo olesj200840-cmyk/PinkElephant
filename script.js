@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const welcomeModal = document.getElementById("welcome-modal");
     const startButton = document.getElementById("start-button");
 
-    // Показываем окно только при первом заходе в сессии
+    // Показываем окно только при первом заходе
     if (!sessionStorage.getItem("visited")) {
         welcomeModal.style.display = "flex";
         sessionStorage.setItem("visited", "true");
@@ -39,43 +39,42 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         {
             id: 4,
-            name:"Кольцо аниме манга Евангелион",
+            name: "Кольцо аниме манга Евангелион",
             description: "Кольцо Копьё Лонгина Евангелион, аниме манга, серебристый цвет, бижутерный сплав.",
             imageURL: "./image/кольцо.jpg"
         },
         {
             id: 5,
-            name:"Ночник Геймпад (джостик)",
-            description: "Украшение, содердащее эластичную резинку, которая позволит украшению подходить на размер руки от 16 до 21 см.",
+            name: "Ночник Геймпад (джостик)",
+            description: "Светящийся ночник в форме геймпада, USB-питание.",
             imageURL: "./image/ночник.jpg"
         },
-         {
+        {
             id: 6,
-            name:"Спортивные штаны женские",
+            name: "Спортивные штаны женские",
             description: "Спортивные широкие штаны бежевого цвета с карманами. Идеально подходят для прогулки летом.",
             imageURL: "./image/штаны_жен.jpg"
-        },
-    ]; 
+        }
+    ];
+
     products.forEach((product, index) => {
         const li = document.createElement("li");
         li.className = "product-item";
         li.innerHTML = `
-        <img class="product-img" src="${product.imageURL}" alt="${product.name}">
-                <h3>${product.name}</h3>
+            <img class="product-img" src="${product.imageURL}" alt="${product.name}">
+            <h3>${product.name}</h3>
         `;
         productList.appendChild(li);
-        // Добавляем задержку для анимации появления
         li.style.animationDelay = `${index * 0.1}s`;
-        
-        // Обработчик клика
+
         li.addEventListener("click", () => {
-            modal.style.display = "flex";
             modal.querySelector("h2").innerText = product.name;
             modal.querySelector("p").innerText = product.description;
+            modal.style.display = "flex";
         });
     });
 
-    // Закрытие модального окна с товаром
+    // Закрытие модального окна
     closeButton.addEventListener("click", () => {
         modal.style.display = "none";
     });
@@ -113,43 +112,4 @@ document.addEventListener("DOMContentLoaded", () => {
         });
         document.body.appendChild(installButton);
     });
-
-    // === Навигация по кликам ===
-    document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-
-            // Убираем активный класс со всех
-            document.querySelectorAll('.nav-link').forEach(el => {
-                el.classList.remove('active');
-            });
-
-            // Добавляем текущему
-            this.classList.add('active');
-
-            const page = this.getAttribute('href').slice(1); // home, profile...
-
-            // Здесь можно добавить логику переключения страниц
-            alert(`Переход на: ${page}`);
-            
-            // В будущем: показывать нужную секцию
-        });
-    });
-    products.forEach((product, index) => {
-        const li = document.createElement("li");
-        li.className = "product-item";
-        li.innerHTML = `
-        <img class="product-img" src="${product.imageURL}" alt="${product.name}">
-        <h3>${product.name}</h3>
-    `;
-    productList.appendChild(li);
-
-    li.style.animationDelay = `${index * 0.1}s`;
-
-    li.addEventListener("click", () => {
-        modal.style.display = "flex";
-        modal.querySelector("h2").innerText = product.name;
-        modal.querySelector("p").innerText = product.description;
-    });
-});
 });
